@@ -1,8 +1,8 @@
 " GruberDarker Theme for Vim
 "
-" Adapted from an Emacs theme: 
+" Adapted from an Emacs theme:
 " https://github.com/rexim/gruber-darker-theme
-" 
+"
 " Colorscheme template: https://github.com/mhartington/oceanic-next/blob/master/colors/OceanicNext.vim
 " --------------------------------------------
 
@@ -40,7 +40,6 @@
   let s:gruberBG2=['#453d41', '238']
   let s:gruberLightRed=['#c73c3f', '203']
   let s:gruberRed=['#f43841', '160']
-  let s:gruberNiagara=['#96a6c8', '147']
   let s:gruberQuartz=['#95a99f', '108']
   let s:gruberGreen=['#73c936', '70']
   let s:gruberMain=['#ffdd33', '220']
@@ -86,7 +85,7 @@ call <sid>hi('Macro',         s:gruberFG,         '',            '',        '')
 call <sid>hi('MatchParen',    s:gruberBG2,         s:gruberMain, '',        '')
 call <sid>hi('ModeMsg',       s:gruberFG2,        '',            '',        '')
 call <sid>hi('MoreMsg',       s:gruberFG2,        '',            '',        '')
-call <sid>hi('Question',      s:gruberNiagara,    '',            '',        '')
+call <sid>hi('Question',      s:gruberRed,    '',            '',        '')
 call <sid>hi('Search',        s:gruberBlack,      s:gruberMain,  '',        '')
 call <sid>hi('SpecialKey',    s:gruberFG2,        '',            '',        '')
 call <sid>hi('TooLong',       s:gruberFG2,        '',            '',        '')
@@ -124,8 +123,8 @@ call <sid>hi('Constant',      s:gruberQuartz,     '',            '',          ''
 call <sid>hi('Define',        s:gruberMain,       '',            '',          '')
 call <sid>hi('Delimiter',     s:gruberFG,         '',            '',          '')
 call <sid>hi('Float',         s:gruberQuartz,     '',            '',          '')
-call <sid>hi('Function',      s:gruberNiagara,    '',            '',          '')
-call <sid>hi('Identifier',    s:gruberNiagara,    '',            '',          '')
+call <sid>hi('Function',      s:gruberRed,    '',            '',          '')
+call <sid>hi('Identifier',    s:gruberRed,    '',            '',          '')
 call <sid>hi('Include',       s:gruberMain,       '',            '',          '')
 call <sid>hi('Keyword',       s:gruberMain,       '',            '',          '')
 call <sid>hi('Label',         s:gruberFG,         '',            '',          '')
@@ -176,7 +175,7 @@ call <sid>hi('pythonException',  s:gruberMain, '',  '',  '')
 
 call <sid>hi('markdownCode',               s:gruberGreen,   '',          '',          '')
 call <sid>hi('markdownCodeBlock',          s:gruberGreen,   '',          '',          '')
-call <sid>hi('markdownHeadingDelimiter',   s:gruberNiagara, '',          '',          '')
+call <sid>hi('markdownHeadingDelimiter',   s:gruberRed, '',          '',          '')
 call <sid>hi('markdownItalic',             s:gruberPurple,  '',          s:italic,    '')
 call <sid>hi('markdownBold',               s:gruberMain,    '',          s:bold,      '')
 call <sid>hi('markdownCodeDelimiter',      s:gruberBrown,   '',          s:italic,    '')
@@ -187,15 +186,15 @@ call <sid>hi('ALEWarningSign',   s:gruberMain,  s:gruberBG2, s:bold, '')
 call <sid>hi('ALEInfoSign',      s:gruberGreen, s:gruberBG2, s:bold, '')
 
 call <sid>hi('NERDTreeExecFile',  s:gruberFG,      '',      '',  '')
-call <sid>hi('NERDTreeDirSlash',  s:gruberNiagara, '',      '',  '')
-call <sid>hi('NERDTreeOpenable',  s:gruberNiagara, '',      '',  '')
+call <sid>hi('NERDTreeDirSlash',  s:gruberRed, '',      '',  '')
+call <sid>hi('NERDTreeOpenable',  s:gruberRed, '',      '',  '')
 call <sid>hi('NERDTreeFile',      '',              s:none,  '',  '')
-call <sid>hi('NERDTreeFlags',     s:gruberNiagara, '',      '',  '')
+call <sid>hi('NERDTreeFlags',     s:gruberRed, '',      '',  '')
 
 call <sid>hi('vimfilerLeaf',        s:gruberFG,      '',          '',  '')
 call <sid>hi('vimfilerNormalFile',  s:gruberFG,      s:gruberBG1, '',  '')
-call <sid>hi('vimfilerOpenedFile',  s:gruberNiagara, '',          '',  '')
-call <sid>hi('vimfilerClosedFile',  s:gruberNiagara, '',          '',  '')
+call <sid>hi('vimfilerOpenedFile',  s:gruberRed, '',          '',  '')
+call <sid>hi('vimfilerClosedFile',  s:gruberRed, '',          '',  '')
 
 " }}}
 
@@ -211,14 +210,14 @@ let g:terminal_color_10=s:gruberGreen[0]
 let g:terminal_color_3=s:gruberMain[0]
 let g:terminal_color_11=s:gruberMain[0]
 
-let g:terminal_color_4=s:gruberNiagara[0]
-let g:terminal_color_12=s:gruberNiagara[0]
+let g:terminal_color_4=s:gruberRed[0]
+let g:terminal_color_12=s:gruberRed[0]
 
 let g:terminal_color_5=s:gruberPurple[0]
 let g:terminal_color_13=s:gruberPurple[0]
 
-let g:terminal_color_6=s:gruberNiagara[0]
-let g:terminal_color_14=s:gruberNiagara[0]
+let g:terminal_color_6=s:gruberRed[0]
+let g:terminal_color_14=s:gruberRed[0]
 
 let g:terminal_color_7=s:gruberFG[0]
 let g:terminal_color_15=s:gruberFG[0]
