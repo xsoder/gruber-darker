@@ -50,6 +50,12 @@ call s:hi('CursorLineNr', s:fg,       s:hl_line,   'bold')
 call s:hi('VertSplit',    s:comment,  s:bg,        '')
 call s:hi('MatchParen',   s:fg,       s:purple,    'bold')
 
+" --- Statusline (Emacs-style grey bar) ---
+hi StatusLine      guifg=#000000 guibg=#d3d3d3 ctermfg=0 ctermbg=252
+hi StatusLineNC    guifg=#444444 guibg=#c0c0c0 ctermfg=238 ctermbg=250
+hi StatusLineTerm  guifg=#000000 guibg=#d3d3d3 ctermfg=0 ctermbg=252
+hi StatusLineTermNC guifg=#444444 guibg=#c0c0c0 ctermfg=238 ctermbg=250
+
 " --------------------------
 " Search
 " --------------------------
