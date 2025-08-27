@@ -1,4 +1,4 @@
-" dark.vim — Vim colorscheme matching Casey Muratori-inspired Emacs dark theme
+" dark.vim — Vim port of Casey Muratori-inspired Emacs dark theme
 
 set background=dark
 hi clear
@@ -8,16 +8,20 @@ endif
 
 let g:colors_name = "dark"
 
-" Base colors
+" Colors from Emacs theme
 let s:bg        = "#161616"
-let s:fg        = "#c0c0c0"
-let s:comment   = "#808080"
-let s:string    = "#ffb964"
-let s:keyword   = "#87afff"
-let s:function  = "#afff87"
-let s:constant  = "#d787ff"
-let s:warning   = "#ff5f5f"
-let s:command   = "#af87ff"
+let s:fg        = "#ffffff"
+let s:cursor    = "#40FF40"
+let s:hl_line   = "#191970"
+let s:selection = "#191970"
+let s:bracket   = "#cdaa7d"
+let s:string    = "#6b8e23"
+let s:comment   = "#7f7f7f"
+let s:keyword   = "#cd950c"
+let s:constant  = "#6b8e23"
+let s:invalid   = "#f44747"
+let s:command   = "#61afef"
+let s:purple    = "#654CA8"
 
 function! s:hi(group, guifg, guibg, attr)
   let l:cmd = 'hi ' . a:group
@@ -33,40 +37,57 @@ function! s:hi(group, guifg, guibg, attr)
   execute l:cmd
 endfunction
 
-" Normal text
-call s:hi('Normal',       s:fg,      s:bg,      '')
+" --------------------------
+" UI Elements
+" --------------------------
+call s:hi('Normal',       s:fg,       s:bg,        '')
+call s:hi('Cursor',       s:bg,       s:cursor,    '')
+call s:hi('CursorLine',   '',         s:hl_line,   'NONE')
+call s:hi('CursorColumn', '',         s:hl_line,   '')
+call s:hi('Visual',       '',         s:selection, '')
+call s:hi('LineNr',       s:comment,  s:bg,        '')
+call s:hi('CursorLineNr', s:fg,       s:hl_line,   'bold')
+call s:hi('VertSplit',    s:comment,  s:bg,        '')
+call s:hi('MatchParen',   s:fg,       s:purple,    'bold')
 
-" UI
-call s:hi('CursorLine',   '',        "#1e1e1e", 'NONE')
-call s:hi('LineNr',       s:comment, s:bg,      '')
-call s:hi('CursorLineNr', "#ffffff", "#444444", 'bold')
-call s:hi('StatusLine',   "#eeeeee", "#444444", 'NONE')
-call s:hi('StatusLineNC', "#888888", "#2a2a2a", 'NONE')
+" --------------------------
+" Search
+" --------------------------
+call s:hi('Search',       s:fg,       s:purple,    'bold')
+call s:hi('IncSearch',    s:fg,       s:purple,    'bold')
+call s:hi('Error',        s:invalid,  '',          'bold')
+call s:hi('WarningMsg',   s:invalid,  '',          'bold')
 
-" Syntax groups
-call s:hi('Comment',      s:comment, '',        'italic')
-call s:hi('String',       s:string,  '',        '')
-call s:hi('Keyword',      s:keyword, '',        'bold')
-call s:hi('Function',     s:function,'',        '')
-call s:hi('Identifier',   s:fg,      '',        '')
-call s:hi('Constant',     s:constant,'',        '')
-call s:hi('Type',         "#5fd7af", '',        '')
-call s:hi('PreProc',      "#ffaf5f", '',        '')
-call s:hi('Error',        "#ffffff", s:warning, 'bold')
-call s:hi('WarningMsg',   s:warning, '',        'bold')
+" --------------------------
+" Syntax
+" --------------------------
+call s:hi('Keyword',      s:keyword,  '', 'bold')
+call s:hi('Statement',    s:keyword,  '', 'bold')
+call s:hi('Type',         s:bracket,  '', '')
+call s:hi('Identifier',   s:bracket,  '', '')
+call s:hi('Function',     s:bracket,  '', '')
+call s:hi('Constant',     s:constant, '', '')
+call s:hi('String',       s:string,   '', '')
+call s:hi('Comment',      s:comment,  '', '')
 
-" Special
-call s:hi('Search',       "#000000", "#ffff87", 'NONE')
-call s:hi('IncSearch',    "#000000", "#ffaf00", 'NONE')
-call s:hi('Special',      s:command, '',        '')
-call s:hi('Title',        s:command, '',        'bold')
-call s:hi('Directory',    s:command, '',        '')
+" --------------------------
+" Command / Completion / Titles
+" --------------------------
+call s:hi('Title',        s:command,  '',          'bold')
+call s:hi('Directory',    s:command,  '',          'bold')
+call s:hi('Pmenu',        s:fg,       s:hl_line,   '')
+call s:hi('PmenuSel',     s:bg,       s:cursor,    'bold')
 
-" Diff
-call s:hi('DiffAdd',      '',        "#003300", '')
-call s:hi('DiffChange',   '',        "#333300", '')
-call s:hi('DiffDelete',   "#ff5f5f", "#330000", '')
-call s:hi('DiffText',     '',        "#444400", 'bold')
-
-" Visual
-call s:hi('Visual',       '',        "#333366", '')
+" --------------------------
+" Terminal colors (Neovim)
+" --------------------------
+let g:terminal_color_0  = s:bg
+let g:terminal_color_1  = s:invalid
+let g:terminal_color_2  = s:string
+let g:terminal_color_3  = s:keyword
+let g:terminal_color_4  = s:command
+let g:terminal_color_5  = s:purple
+let g:terminal_color_6  = s:bracket
+let g:terminal_color_7  = s:fg
+let g:terminal_color_8  = s:comment
+let g:terminal_color_15 = s:fg
